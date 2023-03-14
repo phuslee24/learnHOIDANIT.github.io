@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getCrud</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid white;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        background-color: #96d4d4;
+      }
+      .btn1 {
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+        background-color: gray;
+        width: 60px;
+        height: 25px;
+      }
+      .btn2 {
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(163, 19, 19);
+        width: 60px;
+        height: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="width: 100%">
+      <tr>
+        <th>Email</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+      <% for(let i=0;i < datatable.length;i++) { %>
+      <tr>
+        <td><%= datatable[i].email %></td>
+        <td><%= datatable[i].firstName %></td>
+        <td><%= datatable[i].lastName %></td>
+        <td><%= datatable[i].address %></td>
+        <td>
+          <a href="/edit-crud?id=<%= datatable[i].id %>" class="btn1" type="a"
+            >Edit</a
+          >
+          <a href="/delete-crud?id=<%= datatable[i].id%>" class="btn2" type="a"
+            >Delete</a
+          >
+        </td>
+      </tr>
+
+      <% } %>
+    </table>
+  </body>
+</html>
